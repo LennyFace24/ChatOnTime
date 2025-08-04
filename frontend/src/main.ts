@@ -14,9 +14,9 @@ const app = createApp(App)
 
 
 const getWebSocketUrl = () => {
-    const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+    const protocol = window.location.protocol === 'http:' ? 'ws:' : 'wss:';
     const host = window.location.host;
-    return `ws://${host}/chat`;
+    return `${protocol}//${host}/chat`;
 }
 
 
@@ -72,6 +72,9 @@ app.use(createPinia())
 app.provide(StompClientKey, stompClient)
 
 app.mount('#app')
+
+
+
 
 
 

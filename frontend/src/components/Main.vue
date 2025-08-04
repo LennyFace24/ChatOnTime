@@ -6,7 +6,7 @@
             <div class="people"></div>
             <div class="vertical-line"></div>
             <div class="chatbox">
-                <div class="chatbox-content">
+                <div class="chatbox-content" ref="messagesContainer">
                     <div v-for="(msg, index) in messages" :key="index"
                         :class="msg.self ? 'my-message' : 'other-message'">
                         {{ msg.self ? msg.content : `${msg.sender} : ${msg.content}` }}
@@ -27,15 +27,29 @@
 <script setup lang="ts">
 import { StompClientKey } from '@/main';
 import type { Client } from '@stomp/stompjs';
-import { ref, onMounted, onUnmounted, inject } from 'vue';
+import { ref, onMounted, onUnmounted, inject, nextTick, watch } from 'vue';
 
 // self 为之后显示是否是自己发的消息做准备
 const messages = ref<{ content: string, sender: string, self: boolean, sendTime?: string }[]>([]);
 const inputMessage = ref('');
 const stompClient = inject(StompClientKey) as Client
+const messagesContainer = ref<HTMLElement>()
 
 let subscription: any = null
 
+
+const scrollToBottom = () => {
+  nextTick(() => {
+    if (messagesContainer.value) {
+      messagesContainer.value.scrollTop = messagesContainer.value.scrollHeight
+    }
+  })
+}
+
+// 监听消息数组变化，自动滚动到底部
+watch(messages, () => {
+  scrollToBottom()
+}, { deep: true })
 
 const getUsername = () => {
     const userStr = localStorage.getItem('user');

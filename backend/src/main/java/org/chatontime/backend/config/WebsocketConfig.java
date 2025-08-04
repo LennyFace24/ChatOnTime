@@ -22,6 +22,6 @@ public class WebsocketConfig implements WebSocketMessageBrokerConfigurer {
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
         registry.addEndpoint("/chat")
-                .setAllowedOriginPatterns("http://localhost:*");// 允许所有域名跨域访问
+                .setAllowedOriginPatterns("*");// 允许所有域名跨域访问
     }
 }
