@@ -65,7 +65,7 @@ const handleRegisterResponce = (resp: any) => {
     if (resp.success) {
         console.log('注册成功')
         localStorage.setItem('user', JSON.stringify(msg.value));
-        router.push('/chat')
+        router.push('/chatweb')
         nameValue.value = '';
         passwordValue.value = '';
         return;
