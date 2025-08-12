@@ -1,9 +1,10 @@
 <template>
-    <div class="flex items-center justify-center min-h-[80vh]">
-        <div class="w-full max-w-5xl bg-white/90 shadow-2xl rounded-2xl p-8 flex flex-col">
+    <div class="flex items-center justify-center h-[80vh]">
+        <div class="w-full max-w-5xl bg-white/90 shadow-2xl rounded-2xl p-8 flex flex-col h-full">
             <div class="text-3xl font-bold text-gray-800 mb-2 tracking-wide">聊天室</div>
             <div class="h-1 w-full bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 rounded mb-6"></div>
-            <div class="flex flex-1 max-h-[600px]">
+            <!-- 固定聊天区域高度，避免在没有消息时被内容撑缩 -->
+            <div class="flex flex-1 h-[600px]">
                 <div
                     class="w-56 bg-gradient-to-b from-blue-100 to-purple-100 rounded-l-2xl p-4 flex flex-col items-center border-r border-gray-200">
                     <div class="text-lg font-semibold text-gray-700 mb-2">在线成员</div>
