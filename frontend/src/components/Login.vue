@@ -60,7 +60,7 @@ const handleLoginResponce = (resp: any) => {
     if (resp.success) {
         console.log('登录成功')
         localStorage.setItem('user', JSON.stringify(msg.value));
-        router.push('/chat');
+        router.push('/chatweb');
         nameValue.value = '';
         passwordValue.value = '';
         return;
