@@ -5,7 +5,7 @@ import type { InjectionKey } from 'vue'
 
 import App from './App.vue'
 import router from './router'
-import Login from './components/Login.vue'
+import './assets/input.css'
 
 //用于注入的key
 export const StompClientKey: InjectionKey<Client> = Symbol('StompClient');

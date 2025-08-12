@@ -1,17 +1,26 @@
+
 <template>
-    <div class="centered-div">
-        <div class="title">
-            登录页面
-        </div>
-        <div class="login-box">
-            <div class="input">
-                用户名：
-                <input type="text" v-model="nameValue" placeholder="张三" maxlength="10" />
-                密码：
-                <input type="password" v-model="passwordValue" placeholder="123456" maxlength="30">
+    <div class="flex flex-col items-center justify-center min-h-[80vh]">
+        <div class="bg-white/80 shadow-2xl border border-gray-200 rounded-2xl w-full max-w-xl p-10 flex flex-col items-center">
+            <div class="font-bold text-3xl text-gray-800 mb-8 tracking-wide">登录页面</div>
+            <div class="w-full flex flex-col gap-6">
+                <div class="flex flex-col gap-2">
+                    <label class="text-lg text-gray-700 font-medium text-left">用户名</label>
+                    <input type="text" v-model="nameValue" placeholder="张三" maxlength="10"
+                        class="px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 transition w-full bg-white/90" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label class="text-lg text-gray-700 font-medium text-left">密码</label>
+                    <input type="password" v-model="passwordValue" placeholder="123456" maxlength="30"
+                        class="px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 transition w-full bg-white/90" />
+                </div>
+                <div class="flex gap-4 mt-4">
+                    <button @click="loginFunc"
+                        class="flex-1 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 rounded-lg shadow transition">登录</button>
+                    <button @click="registerFunc"
+                        class="flex-1 bg-green-500 hover:bg-green-600 text-white font-semibold py-2 rounded-lg shadow transition">注册</button>
+                </div>
             </div>
-            <button @click="loginFunc">登录</button>
-            <button @click="registerFunc">注册</button>
         </div>
     </div>
 </template>
@@ -133,48 +142,4 @@ const registerFunc = () => {
 </script>
 
 <style scoped>
-.centered-div {
-    background-color: azure;
-    border: 5px solid #000;
-    border-radius: 10px;
-    text-align: center;
-    border-color: black;
-    width: 1000px;
-    height: 900px;
-    margin: 0 auto;
-    /*让div水平居中*/
-    position: absolute;
-    left: 0;
-    right: 0;
-    display: flex;
-    flex-direction: column;
-    /* 垂直排列子元素 */
-}
-
-.title {
-    margin-top: 16px;
-    font-size: 32px;
-}
-
-.login-box {
-    background-color: azure;
-    border: 5px solid #000;
-    border-radius: 10px;
-    text-align: center;
-    border-color: black;
-    width: 500px;
-    height: 450px;
-    margin: 1rem auto;
-    /*让div水平居中*/
-    left: 0;
-    right: 0;
-    display: flex;
-    flex-direction: column;
-    /* 垂直排列子元素 */
-}
-
-.input {
-    width: fit-content + 10px;
-    margin: 1rem auto;
-}
 </style>
